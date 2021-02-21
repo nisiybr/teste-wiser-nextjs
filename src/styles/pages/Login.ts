@@ -18,22 +18,23 @@ export const Content = styled.header`
   max-width: 25.6rem;
   margin-left: 11rem;
   margin-right: 24rem;
-  /* @media (max-width: 800px) {
-    padding-top: 10rem;
-  } */
+  @media (max-width: 1000px) {
+    margin-left: 8rem;
+    margin-right: 8rem;
+  }
 
   h1 {
     font-weight: 400;
-    font-size: 40px;
-    line-height: 48px;
+    font-size: 4rem;
+    line-height: 4.8rem;
     color: #383e71;
   }
   p {
     margin-top: 1.6rem;
     margin-bottom: 3.5rem;
     font-weight: 600;
-    font-size: 16px;
-    line-height: 20px;
+    font-size: 1.6rem;
+    line-height: 2rem;
     color: #989fdb;
   }
   strong {
@@ -41,13 +42,13 @@ export const Content = styled.header`
     margin-top: 1.6rem;
     margin-bottom: 0.8rem;
     font-weight: normal;
-    font-size: 10px;
+    font-size: 1rem;
     color: #383e71;
   }
   span {
     font-weight: normal;
-    font-size: 14px;
-    line-height: 20px;
+    font-size: 1.4rem;
+    line-height: 2rem;
     color: #989fdb;
   }
 `;
@@ -55,7 +56,13 @@ export const Form = styled(Unform)`
   display: flex;
   flex-direction: column;
 `;
-
+export const Error = styled.h2`
+  margin-top: 0.8rem;
+  color: #ff377f;
+  font-size: 1rem;
+  margin-left: 1.4rem;
+  /* line-height: 4.8rem; */
+`;
 export const SpanWrapper = styled.div`
   margin-top: 3.2rem;
 

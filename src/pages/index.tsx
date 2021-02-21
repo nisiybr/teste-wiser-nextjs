@@ -1,4 +1,4 @@
-import React, { useRef, useCallback, useEffect } from 'react';
+import React, { useRef, useCallback, useEffect, useState } from 'react';
 import { useRouter } from 'next/router';
 
 import Link from 'next/link';
@@ -12,6 +12,7 @@ import {
   Content,
   Form,
   SpanWrapper,
+  Error,
 } from '../styles/pages/Login';
 
 import Input from '../components/Input';
@@ -24,8 +25,14 @@ interface SignInFormData {
   email: string;
   password: string;
 }
+interface ErrorProps {
+  email?: string;
+  password?: string;
+}
 
 const Login: React.FC = () => {
+  const [arrayErrors, setarrayErrors] = useState<ErrorProps>({});
+
   const router = useRouter();
 
   const formRef = useRef<FormHandles>(null);
@@ -34,7 +41,6 @@ const Login: React.FC = () => {
   const { token, signed, loading } = useSelector<IAuth>(state => state.auth);
 
   useEffect(() => {
-    console.log(`Token: ${token}, Signed: ${signed} , Loading: ${loading}`);
     if (signed) {
       router.push(`/dashboard`);
     }
@@ -42,6 +48,7 @@ const Login: React.FC = () => {
   const handleSubmit = useCallback(
     async (data: SignInFormData) => {
       try {
+        setarrayErrors({});
         formRef.current?.setErrors({});
         const schema = Yup.object().shape({
           email: Yup.string()
@@ -57,6 +64,8 @@ const Login: React.FC = () => {
       } catch (err) {
         if (err instanceof Yup.ValidationError) {
           const errors = getValidationErrors(err);
+          console.log(errors);
+          setarrayErrors(errors);
           formRef.current?.setErrors(errors);
         } else {
           alert('Houve um problema na autenticação.');
@@ -76,8 +85,10 @@ const Login: React.FC = () => {
         <Form ref={formRef} onSubmit={handleSubmit}>
           <strong>E-MAIL</strong>
           <Input type="email" name="email" placeholder="user.name@mail.com" />
+          {arrayErrors.email && <Error>{arrayErrors.email}</Error>}
           <strong>SENHA</strong>
           <Input type="password" name="password" placeholder="*******" />
+          {arrayErrors.password && <Error>{arrayErrors.password}</Error>}
           <Button type="submit">{loading ? 'CARREGANDO...' : 'ENTRAR'}</Button>
         </Form>
         <SpanWrapper>
