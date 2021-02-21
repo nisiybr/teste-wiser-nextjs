@@ -9,8 +9,13 @@ export const Container = styled.div`
   display: flex;
   height: 100vh;
   flex-direction: row;
+  @media (max-width: 600px) {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
 `;
-export const Content = styled.header`
+export const Content = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -18,7 +23,7 @@ export const Content = styled.header`
   max-width: 25.6rem;
   margin-left: 11rem;
   margin-right: 24rem;
-  @media (max-width: 100rem) {
+  @media (max-width: 1000px) {
     margin-left: 8rem;
     margin-right: 8rem;
   }
@@ -28,6 +33,9 @@ export const Content = styled.header`
     font-size: 4rem;
     line-height: 4.8rem;
     color: #383e71;
+    @media (max-width: 600px) {
+      text-align: center;
+    }
   }
   p {
     margin-top: 1.6rem;
@@ -36,6 +44,9 @@ export const Content = styled.header`
     font-size: 1.6rem;
     line-height: 2rem;
     color: #989fdb;
+    @media (max-width: 600px) {
+      text-align: center;
+    }
   }
   strong {
     margin-left: 1.2rem;
@@ -45,12 +56,6 @@ export const Content = styled.header`
     font-size: 1rem;
     color: #383e71;
   }
-  span {
-    font-weight: normal;
-    font-size: 1.4rem;
-    line-height: 2rem;
-    color: #989fdb;
-  }
 `;
 export const Form = styled(Unform)`
   display: flex;
@@ -59,6 +64,13 @@ export const Form = styled(Unform)`
 
 export const SpanWrapper = styled.div`
   margin-top: 3.2rem;
+
+  span {
+    font-weight: normal;
+    font-size: 1.4rem;
+    line-height: 2rem;
+    color: #989fdb;
+  }
 
   display: flex;
   flex-direction: column;
@@ -87,4 +99,7 @@ export const Background = styled.div`
   background-repeat: no-repeat, no-repeat;
   background-position: center, center;
   background-size: cover, cover;
+  @media (max-width: 600px) {
+    display: none;
+  }
 `;

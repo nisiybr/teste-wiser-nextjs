@@ -90,10 +90,18 @@ const Login: React.FC = () => {
         <Form ref={formRef} onSubmit={handleSubmit}>
           <strong>E-MAIL</strong>
           <Input type="email" name="email" placeholder="user.name@mail.com" />
-          {arrayErrors.email && <Error>{arrayErrors.email}</Error>}
+          {arrayErrors.email ? (
+            <Error>{arrayErrors.email}</Error>
+          ) : (
+            <Error> </Error>
+          )}
           <strong>SENHA</strong>
           <Input type="password" name="password" placeholder="*******" />
-          {arrayErrors.password && <Error>{arrayErrors.password}</Error>}
+          {arrayErrors.password ? (
+            <Error>{arrayErrors.password}</Error>
+          ) : (
+            <Error> </Error>
+          )}
           <Button type="submit">{loading ? 'CARREGANDO...' : 'ENTRAR'}</Button>
         </Form>
         <SpanWrapper>
