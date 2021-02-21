@@ -55,7 +55,7 @@ const Dashboard: React.FC = () => {
     <Container>
       <Background />
       <Content>
-        <h1>{`Olá ${user.name}!`}</h1>
+        <h1>{user.name ? `Olá ${user.name}!` : 'Carregando...'}</h1>
         <p>Para fazer o logout da aplicação</p>
         <SpanWrapper>
           <Button type="button" onClick={handleLogout}>

@@ -1,6 +1,8 @@
 import React, { useRef, useCallback, useEffect, useState } from 'react';
 import { useRouter } from 'next/router';
 
+import { toast } from 'react-toastify';
+
 import Link from 'next/link';
 import { FormHandles } from '@unform/core';
 import * as Yup from 'yup';
@@ -68,7 +70,7 @@ const Login: React.FC = () => {
           setarrayErrors(errors);
           formRef.current?.setErrors(errors);
         } else {
-          alert('Houve um problema na autenticação.');
+          toast('Houve um problema na autenticação!');
         }
       }
     },

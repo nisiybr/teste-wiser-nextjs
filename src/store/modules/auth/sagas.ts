@@ -1,8 +1,11 @@
 import { AxiosResponse } from 'axios';
 import { all, takeLatest, call, put } from 'redux-saga/effects';
 
+import { toast } from 'react-toastify';
+
 import api from '../../../services/api';
 import { signInSuccess, signInFailure, signInRequest } from './actions';
+import { ActionTypes } from './types';
 
 type CheckSignInRequest = ReturnType<typeof signInRequest>;
 
@@ -31,11 +34,18 @@ function* signIn({ payload }: CheckSignInRequest) {
     const token = user[0].id;
 
     yield put(signInSuccess(token, user[0]));
+    toast.success('Login realizado com sucesso!');
   } catch (err) {
-    console.log('Falha na autenticação, verifique seus dados!');
-    // toast.error('Falha na autenticação, verifique seus dados!');
+    toast.error('Falha na autenticação, verifique seus dados!');
     yield put(signInFailure());
   }
 }
 
-export default all([takeLatest('@auth/SIGN_IN_REQUEST', signIn)]);
+export function signOut() {
+  toast.warn('Logout realizado com sucesso!');
+}
+
+export default all([
+  takeLatest(ActionTypes.signInRequest, signIn),
+  takeLatest(ActionTypes.signOut, signOut),
+]);
