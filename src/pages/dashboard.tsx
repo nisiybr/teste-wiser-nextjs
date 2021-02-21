@@ -14,6 +14,7 @@ import Button from '../components/Button';
 import { signOut } from '../store/modules/auth/actions';
 import { IAuth } from '../store/modules/auth/types';
 import api from '../services/api';
+import { IState } from '../store';
 
 interface IUser {
   id?: number;
@@ -26,7 +27,9 @@ const Dashboard: React.FC = () => {
   const [user, setUser] = useState<IUser>({});
 
   const dispatch = useDispatch();
-  const { token, signed, loading } = useSelector<IAuth>(state => state.auth);
+  const { loading, signed, token } = useSelector<IState, IAuth>(
+    state => state.auth,
+  );
   const handleLogout = useCallback(() => {
     dispatch(signOut());
   }, [dispatch]);

@@ -22,6 +22,7 @@ import Button from '../components/Button';
 
 import { signInRequest } from '../store/modules/auth/actions';
 import { IAuth } from '../store/modules/auth/types';
+import { IState } from '../store';
 
 interface SignInFormData {
   email: string;
@@ -40,7 +41,9 @@ const Login: React.FC = () => {
   const formRef = useRef<FormHandles>(null);
 
   const dispatch = useDispatch();
-  const { token, signed, loading } = useSelector<IAuth>(state => state.auth);
+  const { loading, signed, token } = useSelector<IState, IAuth>(
+    state => state.auth,
+  );
 
   useEffect(() => {
     if (signed) {

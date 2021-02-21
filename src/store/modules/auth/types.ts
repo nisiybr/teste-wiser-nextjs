@@ -1,3 +1,4 @@
+// eslint-disable-next-line no-shadow
 export enum ActionTypes {
   signInRequest = '@auth/SIGN_IN_REQUEST',
   signInSuccess = '@auth/SIGN_IN_SUCCESS',

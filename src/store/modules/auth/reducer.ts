@@ -1,6 +1,6 @@
 import { Reducer } from 'redux';
 import produce from 'immer';
-import { IAuth, ISignInCredentials } from './types';
+import { IAuth } from './types';
 
 const INITIAL_STATE: IAuth = {
   token: null,
