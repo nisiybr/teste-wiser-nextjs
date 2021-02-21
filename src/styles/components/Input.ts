@@ -64,11 +64,11 @@ export const Error = styled(Tooltip)`
     margin: 0;
   }
   span {
-    background: #c53030;
+    background: #ff377f;
     color: #fff;
 
     &::before {
-      border-color: #c53030 transparent;
+      border-color: #ff377f transparent;
     }
   }
 `;

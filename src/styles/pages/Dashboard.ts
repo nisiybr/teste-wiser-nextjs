@@ -15,12 +15,9 @@ export const Content = styled.header`
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  max-width: 25.6rem;
-  margin-left: 11rem;
-  margin-right: 24rem;
-  /* @media (max-width: 800px) {
-    padding-top: 10rem;
-  } */
+  max-width: 256px;
+  margin-left: 110px;
+  margin-right: 240px;
 
   h1 {
     font-weight: 400;

@@ -1,6 +1,11 @@
 import React, { useRef, useCallback, useEffect } from 'react';
+import { useRouter } from 'next/router';
+
 import Link from 'next/link';
 import { FormHandles } from '@unform/core';
+import * as Yup from 'yup';
+import { useDispatch, useSelector } from 'react-redux';
+import getValidationErrors from '../utils/getValidationErrors';
 import {
   Container,
   Background,
@@ -12,20 +17,54 @@ import {
 import Input from '../components/Input';
 import Button from '../components/Button';
 
-import api from '../services/api';
+import { signInRequest } from '../store/modules/auth/actions';
+import { IAuth } from '../store/modules/auth/types';
+
+interface SignInFormData {
+  email: string;
+  password: string;
+}
 
 const Login: React.FC = () => {
+  const router = useRouter();
+
   const formRef = useRef<FormHandles>(null);
 
-  useEffect(() => {
-    api.get(`/users/1`).then(response => {
-      console.log(response.data);
-    });
-  }, []);
+  const dispatch = useDispatch();
+  const { token, signed, loading } = useSelector<IAuth>(state => state.auth);
 
-  const handleSubmit = useCallback(() => {
-    console.log('Apertou botão entrar');
-  }, []);
+  useEffect(() => {
+    console.log(`Token: ${token}, Signed: ${signed} , Loading: ${loading}`);
+    if (signed) {
+      router.push(`/dashboard`);
+    }
+  }, [token, signed, loading, router]);
+  const handleSubmit = useCallback(
+    async (data: SignInFormData) => {
+      try {
+        formRef.current?.setErrors({});
+        const schema = Yup.object().shape({
+          email: Yup.string()
+            .required('E-mail obrigatório')
+            .email('Digite um e-mail válido'),
+          password: Yup.string().required('Senha obrigatória'),
+        });
+        await schema.validate(data, {
+          abortEarly: false,
+        });
+
+        dispatch(signInRequest(data));
+      } catch (err) {
+        if (err instanceof Yup.ValidationError) {
+          const errors = getValidationErrors(err);
+          formRef.current?.setErrors(errors);
+        } else {
+          alert('Houve um problema na autenticação.');
+        }
+      }
+    },
+    [dispatch],
+  );
 
   return (
     <Container>
@@ -39,7 +78,7 @@ const Login: React.FC = () => {
           <Input type="email" name="email" placeholder="user.name@mail.com" />
           <strong>SENHA</strong>
           <Input type="password" name="password" placeholder="*******" />
-          <Button type="submit">ENTRAR</Button>
+          <Button type="submit">{loading ? 'CARREGANDO...' : 'ENTRAR'}</Button>
         </Form>
         <SpanWrapper>
           <span>Esqueceu seu login ou senha?</span>
