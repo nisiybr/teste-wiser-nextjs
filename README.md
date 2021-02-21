@@ -32,3 +32,80 @@ You can check out [the Next.js GitHub repository](https://github.com/vercel/next
 The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
 Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+
+
+
+## Dados no Mock da API - Informações para Login
+
+API endpoint
+https://6031e552081a01001754740e.mockapi.io/api/v1/:endpoint
+
+Por exemplo:
+https://6031e552081a01001754740e.mockapi.io/api/v1/users/1
+https://6031e552081a01001754740e.mockapi.io/api/v1/users/
+
+```json
+[
+  {
+    "id": "1",
+    "name": "Sven Wiegand",
+    "email": "Daisy_Donnelly@yahoo.com",
+    "password": "123456"
+  },
+  {
+    "id": "2",
+    "name": "Dawn Schneider",
+    "email": "Alford_Kautzer98@hotmail.com",
+    "password": "123456"
+  },
+  {
+    "id": "3",
+    "name": "Mrs. Lesley Nader",
+    "email": "Bernardo96@gmail.com",
+    "password": "123456"
+  },
+  {
+    "id": "4",
+    "name": "Price Kuhn",
+    "email": "Charles_Schuster37@yahoo.com",
+    "password": "123456"
+  },
+  {
+    "id": "5",
+    "name": "Chet Abernathy",
+    "email": "Myrna62@hotmail.com",
+    "password": "123456"
+  },
+  {
+    "id": "6",
+    "name": "Samson Halvorson Sr.",
+    "email": "Beulah_Mohr@yahoo.com",
+    "password": "123456"
+  },
+  {
+    "id": "7",
+    "name": "Caden Padberg",
+    "email": "Boyd41@yahoo.com",
+    "password": "123456"
+  },
+  {
+    "id": "8",
+    "name": "Mr. Mike Raynor",
+    "email": "Orrin_Hahn90@gmail.com",
+    "password": "123456"
+  },
+  {
+    "id": "9",
+    "name": "Grant Thompson",
+    "email": "Jayda.Hintz@gmail.com",
+    "password": "123456"
+  },
+  {
+    "id": "10",
+    "name": "Henry Schowalter",
+    "email": "Lawson.Crist@yahoo.com",
+    "password": "123456"
+  }
+]
+```
+
