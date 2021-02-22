@@ -16,7 +16,7 @@ interface IUser {
   password: string;
 }
 
-function* signIn({ payload }: CheckSignInRequest) {
+export function* signIn({ payload }: CheckSignInRequest) {
   try {
     const { email, password } = payload;
 
@@ -41,8 +41,8 @@ function* signIn({ payload }: CheckSignInRequest) {
   }
 }
 
-export function signOut() {
-  toast.warn('Logout realizado com sucesso!');
+export function* signOut() {
+  yield toast.warn('Logout realizado com sucesso!');
 }
 
 export default all([

@@ -37,7 +37,6 @@ const Login: React.FC = () => {
   const [arrayErrors, setarrayErrors] = useState<ErrorProps>({});
 
   const router = useRouter();
-
   const formRef = useRef<FormHandles>(null);
 
   const dispatch = useDispatch();
@@ -69,11 +68,10 @@ const Login: React.FC = () => {
       } catch (err) {
         if (err instanceof Yup.ValidationError) {
           const errors = getValidationErrors(err);
-          console.log(errors);
           setarrayErrors(errors);
           formRef.current?.setErrors(errors);
         } else {
-          toast('Houve um problema na autenticação!');
+          toast.error('Houve um problema na autenticação!');
         }
       }
     },
@@ -102,7 +100,9 @@ const Login: React.FC = () => {
           ) : (
             <Error> </Error>
           )}
-          <Button type="submit">{loading ? 'CARREGANDO...' : 'ENTRAR'}</Button>
+          <Button type="submit" loading={loading}>
+            ENTRAR
+          </Button>
         </Form>
         <SpanWrapper>
           <span>Esqueceu seu login ou senha?</span>
