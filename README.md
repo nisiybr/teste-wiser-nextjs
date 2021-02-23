@@ -1,38 +1,45 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
-
-## Getting Started
-
-First, run the development server:
-
+# Instalação (pt-br)
+1. Realize o download ou "git clone" do repositório.
+```bash
+git clone https://github.com/nisiybr/teste-wiser-nextjs.git teste_clone
+```
+2. Abra um programa que execute linha de comando, entre no diretório baixado e então rode o comando para instalar as dependências:
+```bash
+yarn
+```
+3. Inicie o servidor de desenvolvimento:
 ```bash
 npm run dev
 # or
 yarn dev
 ```
+4. Abra[http://localhost:3000](http://localhost:3000) com seu navegador para visualizar a aplicação.
+5. Realizando o build:
+```bash
+yarn build
+```
+6. Inicializando a aplicação em Produção:
+```bash
+yarn start
+```
+# Funcionalidades fora do escopo (pt-br)
+- Página de Esqueci minha Senha
+- Página de Cadastro de Usuário
+- Senha/Token criptografados com JWT, ou alguma outra biblioteca
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+# Funcionalidades (pt-br)
+Link da Aplicação em Produção: [https://vercel.com/guilhermenisiyama/teste-wiser-nextjs](https://vercel.com/guilhermenisiyama/teste-wiser-nextjs)
+Exemplo de Usuário válido:
+- user: teste@teste.com
+- senha: 123456
 
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
-
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.js`.
-
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
-
+1. Ao realizar um login com sucesso é apresentado um alerta verde e o usuário é direcionado para a rota '/dashboard'
+2. Ao informar um email e senha que não existam no mockApi (todos os users estão listados abaixo), e clicar no botão entrar, é apresentado um popup vermelho e o usuário não é direcionado a outra rota.
+3. Ao informar um e-mail inválido, um erro será apresentado quando clicar no botão Entrar.
+4. Ao não informar algum dos campos, um erro será apresentado quando clicar no botão Entrar.
+5. Na rota Dashboard, temos uma funcionalidade de Logout, ao clicar, será apresentado um alerta em amarelo e o usuário é direcionado à página de Login.
+6. Se o usuário estiver logado e acessar a página de Login, ele é automaticamente direcionado para a rota de área logada ('/dashboard').
+7. Se o usuário não estivar logado e acessar a página de área logada, ele é automaticamente direcionado para a pagina de Login.
 
 
 ## Dados no Mock da API - Informações para Login
@@ -104,6 +111,12 @@ https://6031e552081a01001754740e.mockapi.io/api/v1/users/
     "id": "10",
     "name": "Henry Schowalter",
     "email": "Lawson.Crist@yahoo.com",
+    "password": "123456"
+  },
+  {
+    "id": "11",
+    "name": "Teste Fácil",
+    "email": "teste@teste.com",
     "password": "123456"
   }
 ]
