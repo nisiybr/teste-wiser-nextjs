@@ -28,7 +28,7 @@ yarn start
 - Senha/Token criptografados com JWT, ou alguma outra biblioteca
 
 # Funcionalidades (pt-br)
-Link da Aplicação em Produção: [https://vercel.com/guilhermenisiyama/teste-wiser-nextjs](https://vercel.com/guilhermenisiyama/teste-wiser-nextjs)
+Link da Aplicação em Produção: [https://teste-wiser-nextjs.vercel.app/](https://teste-wiser-nextjs.vercel.app/)
 Exemplo de Usuário válido:
 - user: teste@teste.com
 - senha: 123456
