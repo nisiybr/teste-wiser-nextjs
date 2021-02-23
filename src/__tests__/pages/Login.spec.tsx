@@ -1,9 +1,8 @@
 import React from 'react';
-import { useSelector } from 'react-redux';
-// import { useRouter } from 'next/router';
+import { useSelector, useDispatch } from 'react-redux';
 import { render, fireEvent, waitFor } from '@testing-library/react';
 
-import Login from '../pages/index';
+import Login from '../../pages/index';
 
 const mockedRouterPush = jest.fn();
 jest.mock('next/router', () => {
@@ -17,6 +16,7 @@ jest.mock('next/router', () => {
 jest.mock('react-redux', () => ({
   ...jest.requireActual('react-redux'),
   useSelector: jest.fn(),
+  useDispatch: jest.fn(),
 }));
 
 describe('Login Page', () => {
@@ -37,6 +37,7 @@ describe('Login Page', () => {
       });
     });
     const { getByPlaceholderText, getByText } = render(<Login />);
+
     const emailField = getByPlaceholderText('user.name@mail.com');
     const passwordField = getByPlaceholderText('*******');
     const button = getByText('ENTRAR');
@@ -47,7 +48,7 @@ describe('Login Page', () => {
     fireEvent.click(button);
 
     await waitFor(() => {
-      expect(emailField).toHaveValue('ash.ketchum@pallet.com');
+      expect(useDispatch).toHaveBeenCalled();
     });
   });
   it('should show error icons', async () => {

@@ -1,0 +1,89 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Login Page should render with given state from Redux store 1`] = `
+<div
+  className="Login__Container-sc-2t84lx-0 hHhFTJ"
+>
+  <div
+    className="Login__Background-sc-2t84lx-5 glWJLq"
+  />
+  <div
+    className="Login__Content-sc-2t84lx-1 Jgeci"
+  >
+    <h1>
+      Olá, seja bem-vindo!
+    </h1>
+    <p>
+      Para acessar a plataforma, faça seu login.
+    </p>
+    <form
+      className="Login__Form-sc-2t84lx-2 kSgpdx"
+      onSubmit={[Function]}
+    >
+      <strong>
+        E-MAIL
+      </strong>
+      <div
+        className="Input__Container-sc-19btolu-0 ijpVND"
+        data-testid="input-container"
+        style={Object {}}
+      >
+        <input
+          onBlur={[Function]}
+          onFocus={[Function]}
+          placeholder="user.name@mail.com"
+          type="email"
+        />
+      </div>
+      <h2
+        className="Login__Error-sc-2t84lx-3 eiIBku"
+      >
+         
+      </h2>
+      <strong>
+        SENHA
+      </strong>
+      <div
+        className="Input__Container-sc-19btolu-0 ijpVND"
+        data-testid="input-container"
+        style={Object {}}
+      >
+        <input
+          onBlur={[Function]}
+          onFocus={[Function]}
+          placeholder="*******"
+          type="password"
+        />
+      </div>
+      <h2
+        className="Login__Error-sc-2t84lx-3 eiIBku"
+      >
+         
+      </h2>
+      <button
+        className="Button__Container-sc-192zbdj-0 bdWHlK"
+        type="submit"
+      >
+        ENTRAR
+      </button>
+    </form>
+    <div
+      className="Login__SpanWrapper-sc-2t84lx-4 iyjmGM"
+    >
+      <span>
+        Esqueceu seu login ou senha?
+      </span>
+      <span>
+        Clique
+        <a
+          href="/cadastro"
+          onClick={[Function]}
+          onMouseEnter={[Function]}
+        >
+           aqui
+        </a>
+      </span>
+    </div>
+  </div>
+</div>
+`;
